@@ -11,28 +11,10 @@ using OpenQA.Selenium.Support.UI;
 namespace com.edgewords.mandm.Steps
 {
     [Binding]
-    public class BasketSteps
+    public class BasketSteps : Utilities.TestBase
     {
-        private IWebDriver driver;
-        private string baseURL;
-
-        [BeforeScenario]
-        public void SetUp()
-        {
-            driver = new ChromeDriver();
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(20);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driver.Manage().Timeouts().AsynchronousJavaScript = TimeSpan.FromSeconds(10);
-            driver.Manage().Window.Maximize();
-            baseURL = "https://www.mandmdirect.com/";
-        }
-
-        [AfterScenario]
-        public void TearDown()
-        {
-            driver.Quit();
-        }
-
+        private string baseURL = "https://www.mandmdirect.com/";
+       
         [Given(@"that I am on the home page")]
         public void GivenThatIAmOnTheHomePage()
         {      
