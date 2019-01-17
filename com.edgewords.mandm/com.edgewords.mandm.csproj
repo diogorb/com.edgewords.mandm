@@ -76,6 +76,32 @@
     <None Include="Reporting\TestResSpecFlow.bat" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PicklesDocs\css\bootstrap.min.css" />
+    <Content Include="PicklesDocs\css\print.css" />
+    <Content Include="PicklesDocs\css\styles.css" />
+    <Content Include="PicklesDocs\img\glyphicons-halflings-white.png" />
+    <Content Include="PicklesDocs\img\glyphicons-halflings.png" />
+    <Content Include="PicklesDocs\img\link.png" />
+    <Content Include="PicklesDocs\Index.html" />
+    <Content Include="PicklesDocs\js\bootstrap.min.js" />
+    <Content Include="PicklesDocs\js\Chart.min.js" />
+    <Content Include="PicklesDocs\js\Chart.StackedBar.js" />
+    <Content Include="PicklesDocs\js\featureSearch.js" />
+    <Content Include="PicklesDocs\js\featuresModel.js" />
+    <Content Include="PicklesDocs\js\heirarchyBuilder.js" />
+    <Content Include="PicklesDocs\js\html5.js" />
+    <Content Include="PicklesDocs\js\jquery-1.8.3.min.js" />
+    <Content Include="PicklesDocs\js\jquery.highlight-4.closure.js" />
+    <Content Include="PicklesDocs\js\knockout-3.4.0.js" />
+    <Content Include="PicklesDocs\js\knockout.mapping-latest.js" />
+    <Content Include="PicklesDocs\js\logger.js" />
+    <Content Include="PicklesDocs\js\Markdown.Converter.js" />
+    <Content Include="PicklesDocs\js\Markdown.Extra.js" />
+    <Content Include="PicklesDocs\js\picklesOverview.js" />
+    <Content Include="PicklesDocs\js\stringFormatting.js" />
+    <Content Include="PicklesDocs\js\typeaheadList.js" />
+    <Content Include="PicklesDocs\js\underscore-min.js" />
+    <Content Include="PicklesDocs\pickledFeatures.js" />
     <Content Include="Reporting\FullReport.xslt" />
     <Content Include="Reporting\SummaryReport.xslt" />
   </ItemGroup>
@@ -88,15 +114,23 @@
     <Error Condition="!Exists('..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\SpecFlow.2.4.1\build\SpecFlow.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SpecFlow.2.4.1\build\SpecFlow.targets'))" />
+    <Error Condition="!Exists('..\packages\Pickles.MSBuild.2.20.1\build\Pickles.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Pickles.MSBuild.2.20.1\build\Pickles.MSBuild.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\packages\Selenium.Chrome.WebDriver.2.45\build\Selenium.Chrome.WebDriver.targets')" />
   <Import Project="..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.23.0\build\Selenium.Firefox.WebDriver.targets')" />
   <Import Project="..\packages\SpecFlow.2.4.1\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.2.4.1\build\SpecFlow.targets')" />
+  <Import Project="..\packages\Pickles.MSBuild.2.20.1\build\Pickles.MSBuild.targets" Condition="Exists('..\packages\Pickles.MSBuild.2.20.1\build\Pickles.MSBuild.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
+    -->
   <Target Name="AfterBuild">
+    <PropertyGroup>
+      <Pickles_Generate>True</Pickles_Generate>
+      <Pickles_DocumentationFormat>dhtml</Pickles_DocumentationFormat>
+      <Pickles_FeatureDirectory>$(MSBuildProjectDirectory)\Features</Pickles_FeatureDirectory>
+      <Pickles_OutputDirectory>$(MSBuildProjectDirectory)\PicklesDocs</Pickles_OutputDirectory>
+    </PropertyGroup>
   </Target>
-  -->
 </Project>
