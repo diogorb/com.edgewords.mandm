@@ -7,6 +7,7 @@ using System.Threading;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using com.edgewords.mandm.Poms;
 
 namespace com.edgewords.mandm.Steps
 {
@@ -25,10 +26,15 @@ namespace com.edgewords.mandm.Steps
         public void WhenIAddAnItemToTheBasket()
         {
             //search for some boots!
+            /***
             driver.FindElement(By.Id("mainSearchText")).Click();
             driver.FindElement(By.Id("mainSearchText")).Clear();
             driver.FindElement(By.Id("mainSearchText")).SendKeys("boots");
             driver.FindElement(By.Id("mainSearchText")).SendKeys(Keys.Enter);
+            ***/
+            HomePagePOM HomePage = new HomePagePOM(driver);
+            HomePage.SearchForItem("boots");
+
             driver.FindElement(By.CssSelector("[for='productsalesgender_mens'] .GENDER")).Click();
             //wait for filter to be applied
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
