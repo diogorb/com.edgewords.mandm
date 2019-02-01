@@ -15,8 +15,8 @@ namespace com.edgewords.mandm.Poms
         {
             this.driver = driver;
         }
-        // Define all Locators here:
+        #region POM Locators here
         private IWebElement SearchField => driver.FindElement(By.Id("mainSearchText"));
-
+        #endregion
     }
 }

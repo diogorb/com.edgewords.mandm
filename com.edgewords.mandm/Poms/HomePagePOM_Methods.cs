@@ -9,7 +9,7 @@ namespace com.edgewords.mandm.Poms
 {
     public partial class HomePagePOM
     {
-        // Define all Methods here:
+        #region POM Methods here
         public HomePagePOM SearchForItem(String item)
         {
             SearchField.Clear();
@@ -19,6 +19,7 @@ namespace com.edgewords.mandm.Poms
 
             return this;
         }
+        #endregion
 
     }
 }
