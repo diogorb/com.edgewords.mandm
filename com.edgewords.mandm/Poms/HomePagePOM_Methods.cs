@@ -10,12 +10,14 @@ namespace com.edgewords.mandm.Poms
     public partial class HomePagePOM
     {
         // Define all Methods here:
-        public void SearchForItem (String item)
+        public HomePagePOM SearchForItem(String item)
         {
             SearchField.Clear();
             SearchField.Click();
             SearchField.SendKeys(item);
             SearchField.SendKeys(Keys.Enter);
+
+            return this;
         }
 
     }
